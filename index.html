@@ -5,70 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Zarelly ❤️</title>
     <style>
-        :root {
-            --rose-gold: #e5b3a3;
-            --dark-red: #8e2424;
-            --cream: #fffaf0;
-        }
         body {
             background-color: #fce4ec;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', serif;
-            overflow-x: hidden;
+            height: 100vh;
         }
-        .container { text-align: center; padding: 20px; width: 100%; }
-        
-        /* Pantalla Principal */
-        h1 { color: var(--dark-red); font-size: 2rem; margin-bottom: 30px; }
-        .buttons { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 20px; 
-            min-height: 300px; 
+
+        /* Lluvia de corazones */
+        .heart {
+            position: fixed;
+            top: -10px;
+            color: #ff80ab;
+            font-size: 20px;
+            animation: fall linear forwards;
+            z-index: 0;
+        }
+        @keyframes fall { to { transform: translateY(110vh) translateX(20px); } }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(8px);
+            max-width: 85%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        #main-card img {
+            width: 160px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        h1 { color: #8e2424; font-size: 1.6rem; line-height: 1.4; }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            height: 100px;
             position: relative;
         }
-        
+
         button {
             padding: 15px 30px;
-            font-size: 1.2rem;
-            cursor: pointer;
+            font-size: 1.1rem;
             border: none;
             border-radius: 50px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s ease;
         }
-        #btn-yes { background-color: #ff5252; color: white; z-index: 999; position: relative; }
-        #btn-no { background-color: #eee; color: #666; position: absolute; z-index: 1; }
 
-        /* Invitación Elegante */
+        #btn-yes { background-color: #ff5252; color: white; z-index: 1000; }
+        #btn-no { background-color: #eeeeee; color: #555; position: absolute; z-index: 1; }
+
+        /* Estilo Invitación Museo Larco */
         #invitation {
             display: none;
-            background: var(--cream);
-            border: 2px solid var(--rose-gold);
+            background: #fffaf0;
+            border: 4px double #e5b3a3;
             padding: 40px;
-            border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 400px;
-            margin: 20px;
-            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 350px;
         }
-        .details { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 20px 0; margin: 20px 0; }
-        .details p { margin: 10px 0; color: #444; letter-spacing: 1px; font-size: 1rem; }
-        
-        .poem { font-style: italic; color: var(--dark-red); margin-top: 30px; line-height: 1.6; }
-        .signature { margin-top: 20px; font-weight: bold; font-size: 1.3rem; color: var(--dark-red); }
-        .gif { width: 150px; margin-bottom: 20px; border-radius: 10px; }
+        .details { border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 20px 0; margin: 20px 0; }
+        .details p { margin: 8px 0; color: #333; font-size: 1rem; }
+        .poem { font-style: italic; color: #8e2424; font-size: 0.9rem; line-height: 1.6; }
     </style>
 </head>
 <body>
 
     <div class="container" id="main-card">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3JlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk2m/giphy.gif" class="gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3JlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk2m/giphy.gif" alt="Corazones">
         <h1>¿Quieres ser mi San Valentín, Zarelly? ❤️</h1>
         <div class="buttons">
             <button id="btn-yes">¡SÍ!</button>
@@ -77,55 +97,63 @@
     </div>
 
     <div id="invitation">
-        <h2 style="color: var(--dark-red); letter-spacing: 3px;">RESERVACIÓN</h2>
+        <h2 style="color: #8e2424; letter-spacing: 2px;">RESERVACIÓN</h2>
         <div class="details">
-            <p><strong>Lugar:</strong> Museo Larco (Almuerzo)</p>
-            <p><strong>Fecha:</strong> Sábado, 14 de Febrero</p>
+            <p><strong>Lugar:</strong> Museo Larco</p>
+            <p><strong>Fecha:</strong> Sábado 14 de Febrero</p>
             <p><strong>Hora:</strong> 13:15 PM</p>
         </div>
-        <p>¡SABÍA QUE DIRÍAS QUE SÍ!</p>
-        
         <div class="poem">
             "En el jardín de la historia y el arte,<br>
             lo más bello siempre será amarte.<br>
             Entre flores y tesoros de gran valor,<br>
             celebremos hoy nuestro eterno amor."
         </div>
-        
-        <div class="signature">Te amo, Zarelly ❤️</div>
+        <h2 style="color: #8e2424; margin-top: 25px;">Te amo, Zarelly ❤️</h2>
     </div>
 
     <script>
+        // Lógica de corazones infinitos
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }, 400);
+
         const btnNo = document.getElementById('btn-no');
         const btnYes = document.getElementById('btn-yes');
         const mainCard = document.getElementById('main-card');
         const invitation = document.getElementById('invitation');
         
-        let yesSize = 1.2;
+        let scaleSize = 1;
 
-        function moveAndGrow() {
-            // Mover botón NO
-            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
-            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
-            btnNo.style.left = `${Math.max(0, x)}px`;
-            btnNo.style.top = `${Math.max(0, y)}px`;
+        function moverBotonNo() {
+            // El botón NO se mueve a una posición aleatoria
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 60);
+            btnNo.style.left = x + 'px';
+            btnNo.style.top = y + 'px';
 
-            // Agrandar botón SÍ
-            yesSize += 0.5; 
-            btnYes.style.fontSize = `${yesSize}rem`;
-            btnYes.style.padding = `${15 + (yesSize * 2)}px ${30 + (yesSize * 5)}px`;
+            // El botón SÍ se hace más grande cada vez
+            scaleSize += 0.4;
+            btnYes.style.transform = `scale(${scaleSize})`;
         }
 
-        btnNo.addEventListener('mouseover', moveAndGrow);
+        btnNo.addEventListener('mouseover', moverBotonNo);
         btnNo.addEventListener('touchstart', (e) => { 
             e.preventDefault(); 
-            moveAndGrow(); 
+            moverBotonNo(); 
         });
 
         btnYes.addEventListener('click', () => {
             mainCard.style.display = 'none';
             invitation.style.display = 'block';
-            document.body.style.backgroundColor = "#fffaf0"; 
+            document.body.style.backgroundColor = "#fffaf0";
         });
     </script>
 </body>
