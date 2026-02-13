@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Zarelly ❤️</title>
+    <style>
+        :root {
+            --rose-gold: #e5b3a3;
+            --dark-red: #8e2424;
+            --cream: #fffaf0;
+        }
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+        }
+        .container { text-align: center; padding: 20px; transition: all 0.5s ease; }
+        
+        /* Pantalla Principal */
+        h1 { color: var(--dark-red); font-size: 2rem; margin-bottom: 30px; }
+        .buttons { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; min-height: 200px; }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            transition: transform 0.2s, font-size 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        #btn-yes { background-color: #ff5252; color: white; z-index: 100; }
+        #btn-no { background-color: #eee; color: #666; position: absolute; }
+
+        /* Invitación Elegante */
+        #invitation {
+            display: none;
+            background: var(--cream);
+            border: 2px solid var(--rose-gold);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 400px;
+            position: relative;
+        }
+        #invitation::before {
+            content: "";
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid var(--rose-gold);
+            pointer-events: none;
+        }
+        .museum-logo { width: 120px; margin-bottom: 20px; opacity: 0.8; }
+        .details { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 20px 0; margin: 20px 0; }
+        .details p { margin: 5px 0; color: #444; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+        
+        .poem { font-style: italic; color: var(--dark-red); margin-top: 30px; line-height: 1.6; }
+        .signature { margin-top: 20px; font-weight: bold; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-card">
+        <img src="
